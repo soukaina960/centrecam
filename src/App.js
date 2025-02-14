@@ -17,7 +17,8 @@ import CoursList from "./CoursList";
 import Dashboard from "./Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import { Navigate } from "react-router-dom";
-
+import Selection from "./Selection";
+import Fichier from "./Fichier";
 function Home() {
   return (
     <>
@@ -45,6 +46,8 @@ function App() {
       <Route path="/cours" exact component={CoursList} />
      
       <Route path="/dashboard" element={token ? <Dashboard /> : <Navigate to="/login" />} />
+      <Route path="/selection" element={<Selection />} />
+      <Route path="/fichier" element={<Fichier />} /> 
 
     </Routes>
   );

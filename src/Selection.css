@@ -1,0 +1,230 @@
+/* Selection.css */
+
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a; /* Fond noir */
+    color: #e0e0e0; /* Texte clair */
+    background-image: url('assests/images/Capture-removebg-preview-removebg-preview__1_-removebg-preview.png'); /* Ajoutez votre image transparente ici */
+    background-repeat: no-repeat; /* Ne pas répéter l'image */
+    background-position: center center; /* Centrer l'image */
+    background-size: cover; /* Ajuster l'image pour couvrir tout l'arrière-plan */
+    background-attachment: fixed; /* Fixer l'image pour qu'elle ne défile pas avec la page */
+    background-blend-mode: overlay; /* Mélanger l'image avec la couleur de fond */
+  }
+  
+  /* Conteneur principal */
+  .selection-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(42, 42, 42, 0.9); /* Fond légèrement plus clair avec transparence */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px); /* Effet de flou pour un look moderne */
+  }
+  
+  /* Titre */
+  .selection-title {
+    text-align: center;
+    color: #ffd700; /* Couleur or */
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+  
+  /* Formulaire */
+  .upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-label {
+    color: #ffd700; /* Couleur or */
+    font-weight: bold;
+  }
+  
+  .form-select,
+  .form-input,
+  .form-file {
+    padding: 0.5rem;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: rgba(51, 51, 51, 0.8); /* Fond avec transparence */
+    color: #e0e0e0;
+    font-size: 1rem;
+  }
+  
+  .form-select:focus,
+  .form-input:focus,
+  .form-file:focus {
+    outline: none;
+    border-color: #ffd700; /* Couleur or */
+  }
+  
+  .form-button {
+    padding: 0.75rem;
+    background-color: #ffd700; /* Couleur or */
+    color: #1a1a1a; /* Texte noir */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-button:hover {
+    background-color: #e6b800; /* Or plus foncé au survol */
+  }
+  
+  /* Messages d'erreur et de succès */
+  .error-message {
+    color: #ff4d4d; /* Rouge pour les erreurs */
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .success-message {
+    color: #4dff4d; /* Vert pour les succès */
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Liste des fichiers */
+  .files-title {
+    color: #ffd700; /* Couleur or */
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .files-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .file-item {
+    background-color: rgba(51, 51, 51, 0.8); /* Fond avec transparence */
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #444;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .file-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+  }
+  
+  .file-lesson {
+    color: #ffd700; /* Couleur or */
+    font-weight: bold;
+  }
+  
+  .file-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .file-link:hover {
+    color: #ffd700; /* Couleur or */
+  }
+  
+  .file-info {
+    color: #888;
+    font-size: 0.9rem;
+  }
+  
+  .youtube-link a {
+    color: #ff4d4d; /* Rouge pour les liens YouTube */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .youtube-link a:hover {
+    color: #e60000; /* Rouge plus foncé au survol */
+  }
+  
+  /* Boutons de suppression et de modification */
+  .delete-button,
+  .edit-button {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .delete-button {
+    background-color: #ff4d4d; /* Rouge */
+    color: #fff;
+  }
+  
+  .delete-button:hover {
+    background-color: #e60000; /* Rouge plus foncé */
+  }
+  
+  .edit-button {
+    background-color: #ffd700; /* Or */
+    color: #1a1a1a; /* Texte noir */
+  }
+  
+  .edit-button:hover {
+    background-color: #e6b800; /* Or plus foncé */
+  }
+  
+  /* Formulaire de modification */
+  .edit-form {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: rgba(51, 51, 51, 0.8); /* Fond avec transparence */
+    border-radius: 5px;
+    border: 1px solid #444;
+  }
+  
+  .edit-title {
+    color: #ffd700; /* Couleur or */
+    margin-bottom: 1rem;
+  }
+  
+  .edit-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #ffd700; /* Or */
+    color: #1a1a1a; /* Texte noir */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-button:hover {
+    background-color: #e6b800; /* Or plus foncé */
+  }
+  
+  /* Message si aucun fichier trouvé */
+  .no-files-message {
+    text-align: center;
+    color: #888;
+    margin-top: 2rem;
+  }

@@ -32,7 +32,7 @@ function Navigation() {
             <div className="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
-                        <a className="nav-link page-scroll" href="#register">ACCEUIL <span className="sr-only">(current)</span></a>
+                        <a className="nav-link page-scroll" href="Header.js">ACCEUIL <span className="sr-only">(current)</span></a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link page-scroll" href="#description">ABOUT</a>
