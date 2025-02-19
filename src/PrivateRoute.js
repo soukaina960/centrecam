@@ -1,15 +1,5 @@
-import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 
-function PrivateRoute({ element: Element, ...rest }) {
-  const token = localStorage.getItem('token'); // Vérifie si le token existe dans localStorage
-
-  return (
-    <Route
-      {...rest}
-      element={token ? <Element /> : <Navigate to="/login" />}
-    />
-  );
+export default function PrivateRoute({ children }) {
+    return localStorage.getItem("token") ? children : <Navigate to="/login" />;
 }
-
-export default PrivateRoute;

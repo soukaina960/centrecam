@@ -7,12 +7,10 @@ import { AuthProvider } from "./context/AuthContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-     <AuthProvider>
-    <App />
-  </AuthProvider>,
-     {/* ✅ UN SEUL BrowserRouter ici */}
-     
+    <BrowserRouter>  {/* ✅ UN SEUL BrowserRouter ici */}
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

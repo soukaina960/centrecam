@@ -764,6 +764,9 @@ input[type='checkbox'] {
 	background-size: cover;
 	text-align: center;
 }
+.header{
+	height: 100px;
+}
 
 .header .countdown {
 	margin-bottom: 0.5rem;

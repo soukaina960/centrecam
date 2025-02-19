@@ -1,24 +1,9 @@
 /* Selection.css */
 
 /* Reset de base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+
   
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a; /* Fond noir */
-    color: #e0e0e0; /* Texte clair */
-    background-image: url('assests/images/Capture-removebg-preview-removebg-preview__1_-removebg-preview.png'); /* Ajoutez votre image transparente ici */
-    background-repeat: no-repeat; /* Ne pas répéter l'image */
-    background-position: center center; /* Centrer l'image */
-    background-size: cover; /* Ajuster l'image pour couvrir tout l'arrière-plan */
-    background-attachment: fixed; /* Fixer l'image pour qu'elle ne défile pas avec la page */
-    background-blend-mode: overlay; /* Mélanger l'image avec la couleur de fond */
-  }
-  
+
   /* Conteneur principal */
   .selection-container {
     max-width: 1200px;

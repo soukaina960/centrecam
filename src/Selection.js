@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Selection.css';
+import Navigation from './components/Navigation';
 
 const Selection = () => {
   const location = useLocation();
   const { level } = location.state || { level: 'primaire' };
 
   const [file, setFile] = useState(null);
+  const [Name, setName] = useState('');
   const [classSelect, setClassSelect] = useState('');
   const [subject, setSubject] = useState('');
   const [courseType, setCourseType] = useState('cours');
   const [lesson, setLesson] = useState('');
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [category, setCategory] = useState('');
   const [files, setFiles] = useState([]);
   const [editFile, setEditFile] = useState(null);
   const [youtubeLink, setYoutubeLink] = useState('');
@@ -38,7 +41,10 @@ const Selection = () => {
     try {
       const response = await fetch('http://127.0.0.1:8000/api/files');
       const data = await response.json();
-      setFiles(data);
+
+      // Trier les fichiers par ordre
+      const sortedFiles = data.sort((a, b) => (a.order || 0) - (b.order || 0));
+      setFiles(sortedFiles);
     } catch (error) {
       console.error('Erreur lors du chargement des fichiers:', error);
     }
@@ -63,11 +69,13 @@ const Selection = () => {
 
     const formData = new FormData();
     formData.append('file', file);
+    formData.append('name', Name);
     formData.append('level', level);
     formData.append('class', classSelect);
     formData.append('subject', subject);
     formData.append('course_type', courseType);
     formData.append('lesson', lesson);
+    formData.append('category', category);
     formData.append('youtube_link', youtubeLink);
 
     try {
@@ -93,15 +101,38 @@ const Selection = () => {
   };
 
   const handleDelete = async (id) => {
+    const confirmDelete = window.confirm('Êtes-vous sûr de vouloir supprimer ce fichier ?');
+    if (!confirmDelete) return;
+
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/files/${id}`, { method: 'DELETE' });
+      const url = `http://127.0.0.1:8000/api/files/${id}`;
+      console.log('URL de suppression:', url);
+
+      const response = await fetch(url, {
+        method: 'DELETE',
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      console.log('Réponse du serveur:', response);
+
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        const text = await response.text();
+        console.error('Réponse non JSON:', text);
+        throw new Error('Le serveur a renvoyé une réponse non JSON');
+      }
+
+      const data = await response.json();
       if (response.ok) {
         setSuccessMessage('Fichier supprimé avec succès');
         fetchFiles();
       } else {
-        setError('Erreur lors de la suppression');
+        setError('Erreur lors de la suppression: ' + (data.message || 'Réponse non OK'));
       }
     } catch (error) {
+      console.error('Erreur lors de la suppression:', error);
       setError('Erreur : ' + error.message);
     }
   };
@@ -163,7 +194,7 @@ const Selection = () => {
     e.preventDefault();
   };
 
-  const handleDrop = (e, targetFile) => {
+  const handleDrop = async (e, targetFile) => {
     e.preventDefault();
     if (draggedFile === targetFile) return;
 
@@ -174,8 +205,31 @@ const Selection = () => {
     updatedFiles.splice(draggedIndex, 1);
     updatedFiles.splice(targetIndex, 0, draggedFile);
 
+    // Mettre à jour l'état local
     setFiles(updatedFiles);
     setDraggedFile(null);
+
+    // Envoyer la nouvelle ordonnance au backend
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/update-file-order', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({ files: updatedFiles }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccessMessage('Ordre des fichiers mis à jour avec succès');
+      } else {
+        setError('Erreur lors de la mise à jour de l\'ordre des fichiers');
+      }
+    } catch (error) {
+      setError('Erreur : ' + error.message);
+    }
   };
 
   const filteredFiles = files.filter((file) => {
@@ -188,6 +242,7 @@ const Selection = () => {
 
   return (
     <div className="selection-container">
+      <Navigation />
       <h2 className="selection-title">Sélection pour le niveau {level}</h2>
 
       <form className="upload-form" onSubmit={handleFileUpload}>
@@ -220,6 +275,16 @@ const Selection = () => {
           <select className="form-select" value={courseType} onChange={(e) => setCourseType(e.target.value)} required>
             <option value="cours">Cours</option>
             <option value="exercice">Exercice</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label className="form-label">Catégorie :</label>
+          <select className="form-select" value={category} onChange={(e) => setCategory(e.target.value)} required>
+            <option value="">Sélectionner une catégorie</option>
+            <option value="S1">S1</option>
+            <option value="S2">S2</option>
+            <option value="Autre">Autre</option>
           </select>
         </div>
 

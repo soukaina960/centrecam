@@ -1,63 +1,60 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navigation() {
-    const imageheader = "Capture-removebg-preview-removebg-preview__1_-removebg-preview copy.png"; // Ensure this path is correct
-    const [scrolled, setScrolled] = React.useState(false);
+    const imageheader = "Capture-removebg-preview-removebg-preview__1_-removebg-preview copy.png"; 
+    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
+            setScrolled(window.scrollY > 50);
         };
-
         window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
         <nav className={`navbar navbar-expand-lg navbar-light navbar-custom fixed-top ${scrolled ? "scrolled" : ""}`}>
-             <a className="navbar-brand logo-image" href="index.html">
-                <img src={imageheader} alt="alternative" />
-            </a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <Link to="/" className="navbar-brand logo-image">
+                <img src={imageheader} alt="Logo" />
+            </Link>
+
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault">
                 <span className="navbar-toggler-awesome fas fa-bars"></span>
                 <span className="navbar-toggler-awesome fas fa-times"></span>
             </button>
+
             <div className="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
-                        <a className="nav-link page-scroll" href="Header.js">ACCEUIL <span className="sr-only">(current)</span></a>
+                        <Link to="/" className="nav-link">ACCUEIL</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link page-scroll" href="#description">ABOUT</a>
+                        <Link to="/description" className="nav-link">ABOUT</Link>
                     </li>
                     <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle page-scroll" href="#date" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">COURS</a>
-                        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a className="dropdown-item" href="#primaire"><span className="item-text">PRIMAIRE</span></a>
+                        <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">COURS</a>
+                        <div className="dropdown-menu">
+                            <Link to="/primaire" className="dropdown-item">PRIMAIRE</Link>
                             <div className="dropdown-divider"></div>
-                            <a className="dropdown-item" href="#lycee"><span className="item-text">LYCEE</span></a>
+                            <Link to="/lycee" className="dropdown-item">LYCÉE</Link>
                             <div className="dropdown-divider"></div>
-                            <a className="dropdown-item" href="#college"><span className="item-text">COLLEGE</span></a>
+                            <Link to="/college" className="dropdown-item">COLLÈGE</Link>
                         </div>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link page-scroll" href="#contact">CONTACT</a>
+                        <Link to="/contact" className="nav-link">CONTACT</Link>
                     </li>
                 </ul>
-                            {/* Bouton Prof avec icône */}
-                            <Link to="/Login">
-                <button className="btn btn-warning text-white">
-                    <i className="fas fa-chalkboard-teacher"></i> Prof
-                </button>
-            </Link>
- 
+
+                {/* Bouton Prof */}
+                <Link to="/login">
+                    <button className="btn btn-warning text-white">
+                        <i className="fas fa-chalkboard-teacher"></i> Prof
+                    </button>
+                </Link>
+
+                {/* Réseaux sociaux */}
                 <span className="nav-item social-icons">
                     <span className="fa-stack">
                         <a href="#your-link">
@@ -71,7 +68,6 @@ function Navigation() {
                             <i className="fab fa-twitter fa-stack-1x"></i>
                         </a>
                     </span>
-                    {/* Icône YouTube */}
                     <span className="fa-stack">
                         <a href="https://www.youtube.com/">
                             <i className="fas fa-circle fa-stack-2x"></i>
