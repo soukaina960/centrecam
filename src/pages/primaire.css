@@ -1,339 +1,152 @@
-/* Style spécifique à la page Primaire */
-
-/* Titre principal */
-body{
- 
-}
-.primaire-container h1 {
-  font-size: 2rem;
-  color: #ffc107;
- 
-  text-align: center;
-}
-
-/* Container principal */
-
-
-/* Style pour centrer le logo */
-.primaire-container .navbar-brand {
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-  margin-top: 30px;
-}
-
-.primaire-container .logo-image img {
-  max-width: 100%;
-  height: 20px;
-  margin-bottom: 28px;
-}
-
-/* Titre secondaire */background
-.primaire-container h3 {
-  font-size: 1.5rem;
-  margin-top: 20px;
-  text-align: center;
-}
-
-/* Titre de leçon */
-.primaire-container h4 {
-  font-size: 1.2rem;
-  color: #ffc107;
-}
-
-/* Paragraphe de texte */
-.primaire-container p {
-  margin-top: 50px;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-/* Liens */
-.primaire-container a {
-  color: #ffc107;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.primaire-container a:hover {
-  color: black;
-  text-decoration: underline;
-}
-
-/* Styles des filtres */
-.primaire-container .filters {
+/* Centrage général */
+.primaire-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 20px;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+
+  padding: 20px;
+  background: #1a1a1a; /* Fond noir uniforme */
+  color: #f8f9fa; /* Texte clair pour contraster avec le fond noir */
  
+  box-sizing: border-box;
 }
 
-/* Etiquettes des filtres */
-.primaire-container label {
-  font-size: 1rem;
-  color: black;
-  margin-right: 10px;
-}
-
-/* Sélecteurs personnalisés */
-.primaire-container .Select__control {
-  border-color: #ffc107 !important;
-  box-shadow: none !important;
-  width: 200px;
-  height: 40px;
-  padding: 5px;
-  transition: border-color 0.3s ease;
-}
-
-.primaire-container .Select__control:hover,
-.primaire-container .Select__control--is-focused {
-  border-color: #f9a602 !important;
-}
-
-.primaire-container .Select__menu {
-  background-color: #f4f4f4;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.primaire-container .Select__option {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.primaire-container .Select__option--is-selected {
-  background-color: #ffc107;
-}
-
-.primaire-container .Select__option:hover {
-  background-color: #f9a602;
-}
-
-/* Layout de la liste de leçons */
-.primaire-container .lesson-list {
-  margin-top: 20px;
-}
-
-.primaire-container .lesson {
-  margin-bottom: 20px;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+/* Style de la liste des leçons */
+.lesson-list {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
   padding: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  
+  background: #333; /* Fond gris foncé pour les éléments */
+  border-radius: 15px; /* Bordures arrondies pour un aspect doux */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre subtile pour l'effet flottant */
+  transition: box-shadow 0.3s ease;
 }
 
-.primaire-container .lesson-title {
-  font-size: 1.2rem;
+/* Survol de la liste des leçons */
+.lesson-list:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7); /* Effet de survol avec une ombre plus marquée */
+}
+
+/* Style des leçons */
+.lesson {
+  background: #1f1f1f; /* Fond légèrement plus clair que le parent */
+  padding: 15px;
+  border-radius: 10px; /* Bords arrondis */
+  border: 2px solid #b59e5a; /* Bordure dorée subtile */
+  margin-bottom: 15px;
+  color: #f8f9fa; /* Texte clair */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animation d'apparition des leçons */
+.lesson:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* Titres des leçons */
+.lesson-title {
+  cursor: pointer;
+  font-size: 1.3rem;
   font-weight: bold;
-  color: #242322;
-  margin-bottom: 10px;
-}
-
-.primaire-container .lesson ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.primaire-container .lesson li {
   margin: 10px 0;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.primaire-container .lesson li a {
-  color: #ffc107;
-  text-decoration: none;
-  font-weight: bold;
+  color: #b59e5a; /* Couleur dorée pour les titres */
+  text-transform: uppercase;
+  letter-spacing: 2px;
   transition: color 0.3s ease;
 }
 
-.primaire-container .lesson li a:focus {
-  outline: 2px solid #ffc107;
-}
-
-.primaire-container .lesson li a:active {
-  color: #f9a602;
-}
-
-/* Animation pour la page */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.primaire-container h1,
-.primaire-container h3,
-.primaire-container .filters,
-.primaire-container .lesson-list {
-  animation: fadeIn 1s ease-in-out;
-}
-
-/* Styles de tableau */
-.primaire-container table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.primaire-container table th,
-.primaire-container table td {
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #ccc;
-}
-
-.primaire-container table th {
-  background-color: #202020;
-  color: white;
-}
-body{
-  background-color: black;
-}
-.primaire-container table tr:nth-child(even) {
-  background-color: #f4f4f4;
-}
-
-.primaire-container table tr:hover {
-  background-color: #f9a602;
-}
-
-/* Modifications responsives */
-@media screen and (max-width: 768px) {
-  .primaire-container .filters {
-    flex-direction: column;
-  }
-
-  .primaire-container .Select__control {
-    width: 100%;
-  }
-
-  .primaire-container .lesson-list {
-    margin-top: 10px;
-  }
-}
-
-/* Add spacing between the sections */
-.primaire-container .section {
-  margin-bottom: 30px;
-}
-
-/* Add hover effects on the sections */
-.primaire-container .section:hover {
-  background-color: #f0f0f0;
-}
-
-/* Styles pour les icônes */
-.primaire-container .Select__indicator {
-  color: #ffc107;
-}
-
-.primaire-container .Select__indicator:hover {
-  color: #f9a602;
-}
-
-.primaire-container .Select__dropdown-indicator {
-  color: #ffc107;
-}
-
-.primaire-container .Select__dropdown-indicator:hover {
-  color: #f9a602;
-}
-
-/* Rendre le fond plus agréable */
-.primaire-container .lesson-list {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
-}
-
-.primaire-container .lesson-title {
-  text-align: center;
-  font-size: 1.4rem;
-  color: #ffc107;
-}
-
-/* Style des liens dans les leçons */
-.primaire-container .lesson li a {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #ffc107;
-}
-
-.primaire-container .lesson li a:hover {
+/* Effet de survol sur les titres */
+.lesson-title:hover {
+  color: #fff; /* Changer la couleur du titre en blanc au survol */
   text-decoration: underline;
-  color: black;
 }
 
-/* Améliorer l'accessibilité avec focus et hover */
-.primaire-container a:focus,
-.primaire-container button:focus {
-  outline: 3px solid #ffc107;
+/* Liste des fichiers */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
 }
 
-/* Style des boutons */
-.primaire-container button {
-  background-color: #ffc107;
-  border: none;
-  padding: 10px 20px;
+/* Style des éléments de la liste */
+ul li {
+  margin: 10px 0;
+  transition: transform 0.3s ease;
+}
+
+/* Effet au survol des éléments de la liste */
+ul li:hover {
+  transform: scale(1.05);
+}
+
+ul li a {
+  text-decoration: none;
+  color: #b59e5a; /* Couleur dorée pour les liens */
+  font-weight: bold;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Effet au survol des liens */
+ul li a:hover {
+  color: #f8f9fa; /* Changer la couleur en blanc au survol */
+  text-shadow: 0 0 10px #b59e5a; /* Ombre dorée autour du texte */
+}
+/* Style de base pour les sélecteurs (select) */
+.filters select {
+  width: 200px; /* Largeur fixe ou ajustable */
+  padding: 10px 15px;
   font-size: 1rem;
-  color: black;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.primaire-container button:hover {
-  background-color: #f9a602;
-}
-
-.primaire-container button:focus {
-  outline: 2px solid #ffc107;
-}
-
-/* Style des champs input et select (fusionné) */
-.primaire-container input, .primaire-container select {
-  background: linear-gradient(45deg, #f9a602, #ffc107); /* Dégradé d'or */
-  border: 1px solid #ccc;
-  color: #333;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 1rem;
-  width: 100%;
-  transition: background-color 0.3s ease;
-}
-
-.primaire-container input:focus,
-.primaire-container select:focus {
-  background: #f7a500;
+  color: #f8f9fa; /* Texte clair */
+  background: #333; /* Fond sombre */
+  border: 2px solid #b59e5a; /* Bordure dorée */
+  border-radius: 10px; /* Coins arrondis */
   outline: none;
-  border-color: #f9a602;
-}
-/* Style des champs input */
-/* Style des champs input */
-.primaire-container input, .primaire-container select {
-  background: linear-gradient(45deg, #f9a602, #ffc107); /* Dégradé d'or */
-  border: 1px solid #ccc; /* Bordure légère */
-  color: #fff; /* Texte en blanc pour contraster avec le fond */
-  padding: 10px; /* Espacement intérieur */
-  border-radius: 5px; /* Coins arrondis */
-  font-size: 1rem; /* Taille de la police */
-  width: 100%; /* Largeur à 100% pour s'adapter à l'écran */
-  transition: background-color 0.3s ease; /* Animation lors du focus */
+  cursor: pointer;
+  appearance: none; /* Supprime le style par défaut du navigateur */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Effet au focus */
-.primaire-container input:focus, .primaire-container select:focus {
-  background: #f7a500; /* Changement de couleur de fond au focus */
-  outline: none; /* Retirer la bordure par défaut */
-  border-color: #f9a602; /* Bordure plus foncée */
-  color: #fff; /* Texte en blanc même au focus */
+/* Effet de survol sur les sélecteurs */
+.filters select:hover {
+  border-color: #f8f9fa; /* Bordure blanche au survol */
+  box-shadow: 0 0 10px rgba(181, 158, 90, 0.7); /* Ombre dorée */
+}
+
+/* Effet de focus sur les sélecteurs */
+.filters select:focus {
+  border-color: #f8f9fa; /* Bordure blanche au focus */
+  box-shadow: 0 0 15px rgba(181, 158, 90, 0.9); /* Ombre dorée plus intense */
+}
+
+/* Style des options */
+.filters select option {
+  background: #333; /* Fond sombre */
+  color: #f8f9fa; /* Texte clair */
+  padding: 10px;
+}
+
+/* Style personnalisé pour la flèche du select */
+.filters {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.filters::after {
+  content: "▼"; /* Icône de flèche */
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  color: #b59e5a; /* Couleur dorée */
+  pointer-events: none; /* Permet de cliquer à travers l'icône */
+  font-size: 0.8rem;
+}
+
+/* Effet de survol sur la flèche */
+.filters:hover::after {
+  color: #f8f9fa; /* Couleur blanche au survol */
 }

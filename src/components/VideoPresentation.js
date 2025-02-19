@@ -2,7 +2,7 @@ import React from 'react';
 
 function VideoPresentation() {
   // Déclarez la variable image
-  var imageUrl = "/details-slide-1.jpg";
+  var imageUrl = "/WhatsApp Image 2025-02-19 à 13.08.18_10c49313.jpg";
 
   return (
     <div className="basic-4">
