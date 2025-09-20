@@ -1,0 +1,896 @@
+/* Selection.css */
+
+/* Reset de base */
+
+  
+
+  /* Conteneur principal */
+  .selection-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(42, 42, 42, 0.9); /* Fond légèrement plus clair avec transparence */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px); /* Effet de flou pour un look moderne */
+  }
+  
+  /* Titre */
+  .selection-title {
+    text-align: center;
+    color: #ffd700; /* Couleur or */
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+  
+  /* Formulaire */
+  .upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-label {
+    color: #ffd700; /* Couleur or */
+    font-weight: bold;
+  }
+  
+  .form-select,
+  .form-input,
+  .form-file {
+    padding: 0.5rem;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: rgba(51, 51, 51, 0.8); /* Fond avec transparence */
+    color: #e0e0e0;
+    font-size: 1rem;
+  }
+  
+  .form-select:focus,
+  .form-input:focus,
+  .form-file:focus {
+    outline: none;
+    border-color: #ffd700; /* Couleur or */
+  }
+  
+  .form-button {
+    padding: 0.75rem;
+    background-color: #ffd700; /* Couleur or */
+    color: #1a1a1a; /* Texte noir */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-button:hover {
+    background-color: #e6b800; /* Or plus foncé au survol */
+  }
+  
+  /* Messages d'erreur et de succès */
+  .error-message {
+    color: #ff4d4d; /* Rouge pour les erreurs */
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .success-message {
+    color: #4dff4d; /* Vert pour les succès */
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Liste des fichiers */
+  .files-title {
+    color: #ffd700; /* Couleur or */
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .files-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .file-item {
+    background-color: rgba(51, 51, 51, 0.8); /* Fond avec transparence */
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #444;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .file-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+  }
+  
+  .file-lesson {
+    color: #ffd700; /* Couleur or */
+    font-weight: bold;
+  }
+  
+  .file-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .file-link:hover {
+    color: #ffd700; /* Couleur or */
+  }
+  
+  .file-info {
+    color: #888;
+    font-size: 0.9rem;
+  }
+  
+  .youtube-link a {
+    color: #ff4d4d; /* Rouge pour les liens YouTube */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .youtube-link a:hover {
+    color: #e60000; /* Rouge plus foncé au survol */
+  }
+  
+  /* Boutons de suppression et de modification */
+  .delete-button,
+  .edit-button {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .delete-button {
+    background-color: #ff4d4d; /* Rouge */
+    color: #fff;
+  }
+  
+  .delete-button:hover {
+    background-color: #e60000; /* Rouge plus foncé */
+  }
+  
+  .edit-button {
+    background-color: #ffd700; /* Or */
+    color: #1a1a1a; /* Texte noir */
+  }
+  
+  .edit-button:hover {
+    background-color: #e6b800; /* Or plus foncé */
+  }
+  
+  /* Formulaire de modification */
+  .edit-form {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: rgba(51, 51, 51, 0.8); /* Fond avec transparence */
+    border-radius: 5px;
+    border: 1px solid #444;
+  }
+  
+  .edit-title {
+    color: #ffd700; /* Couleur or */
+    margin-bottom: 1rem;
+  }
+  
+  .edit-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #ffd700; /* Or */
+    color: #1a1a1a; /* Texte noir */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-button:hover {
+    background-color: #e6b800; /* Or plus foncé */
+  }
+  
+  /* Message si aucun fichier trouvé */
+  .no-files-message {
+    text-align: center;
+    color: #888;
+    margin-top: 2rem;
+  }
+  /* Styles pour le formulaire de modification */
+.edit-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.edit-form-container.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.edit-form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.edit-form-container.show .edit-form {
+  transform: translateY(0);
+}
+/* Styles pour la page principale et la page de modification */
+.page-container {
+  display: flex;
+  width: 200%; /* Deux pages côte à côte */
+  transition: transform 0.5s ease;
+}
+
+.main-page,
+.edit-page {
+  width: 100%; /* Chaque page occupe 100% de la largeur du conteneur */
+}
+
+.edit-page {
+  transform: translateX(-100%); /* Déplace la page de modification à gauche */
+}
+
+/* Animation lorsque la page de modification est active */
+.page-container.show-edit .main-page {
+  transform: translateX(-100%); /* Déplace la page principale à gauche */
+}
+
+.page-container.show-edit .edit-page {
+  transform: translateX(0); /* Affiche la page de modification */
+}
+.page-container {
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide-left {
+  transform: translateX(-100%);
+}
+
+.edit-page {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Démarre hors de l'écran */
+  width: 100%;
+  height: 100%;
+  background: white;
+  transition: right 0.5s ease-in-out;
+}
+
+.slide-left .edit-page {
+  right: 0; /* Glisse vers l'intérieur */
+}
+
+.edit-page {
+  position: fixed;
+  bottom: -100%; /* Démarre hors de l'écran */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transition: bottom 0.5s ease-in-out;
+  z-index: 1000; /* Pour s'assurer que le formulaire est au-dessus du contenu */
+}
+
+.slide-up {
+  bottom: 0; /* Glisse vers le haut */
+}
+/* Style général */
+.selection {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selection-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.selection-title {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style du formulaire */
+.upload-form {
+
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.form-select,
+.form-input,
+.form-file {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.form-select:focus,
+.form-input:focus,
+.form-file:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.form-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #0056b3;
+}
+
+/* Style des fichiers téléchargés */
+.files-list {
+  list-style: none;
+  padding: 0;
+}
+
+.file-item {
+
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.file-link {
+ 
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.file-link:hover {
+ 
+}
+
+.delete-button,
+.edit-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.edit-button {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+}
+
+/* Style pour le formulaire d'édition */
+.edit-form {
+
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.edit-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Animation pour un effet "wow" */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.upload-form,
+.edit-form,
+.file-item {
+  animation: fadeIn 0.5s ease-in-out;
+}
+/* Style général */
+.selection {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selection-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.selection-title {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style du formulaire */
+.upload-form {
+
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.form-select,
+.form-input,
+.form-file {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.form-select:focus,
+.form-input:focus,
+.form-file:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.form-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #0056b3;
+}
+
+/* Style des fichiers téléchargés */
+.files-list {
+  list-style: none;
+  padding: 0;
+}
+
+.file-item {
+
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.file-link {
+ 
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.file-link:hover {
+ 
+}
+
+.delete-button,
+.edit-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.edit-button {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+}
+
+/* Style pour le formulaire de modification */
+.edit-form-container {
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  max-height: 0;
+  opacity: 0;
+}
+
+.edit-form-container.visible {
+  max-height: 1000px; /* Ajustez cette valeur en fonction de la taille du formulaire */
+  opacity: 1;
+}
+
+.edit-form {
+
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cancel-button {
+  margin-left: 10px;
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.cancel-button:hover {
+  background-color: #5a6268;
+}
+.selection-title{
+  color: white;
+}
+
+.form-level{
+  display: none;
+  visibility: hidden
+}
+/* ===== SELECTION COMPONENT STYLES ===== */
+.selection-container {
+  
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.selection-container:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.selection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.selection-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.selection-description {
+  color: #7f8c8d;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+/* ===== SELECT INPUT STYLES ===== */
+.selection-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.selection-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #34495e;
+  font-size: 0.95rem;
+}
+
+.selection-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #dfe6e9;
+  border-radius: 8px;
+ 
+  color: #2d3436;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+.selection-select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+.selection-select:hover {
+  border-color: #bdc3c7;
+}
+
+/* ===== LOADING STATE ===== */
+.selection-loading {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.selection-loading::after {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(52, 152, 219, 0.3);
+  border-radius: 50%;
+  border-top-color: #3498db;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== ERROR STATES ===== */
+.selection-error .selection-select {
+  border-color: #e74c3c;
+}
+
+.selection-error-message {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+/* ===== DISABLED STATE ===== */
+.selection-select:disabled {
+
+  color: #95a5a6;
+  cursor: not-allowed;
+}
+
+/* ===== OPTION STYLES ===== */
+.selection-select option {
+  padding: 0.5rem;
+  
+  color: #2d3436;
+}
+
+.selection-select option:checked {
+  background-color: #3498db;
+  color: white;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .selection-container {
+    padding: 1.5rem;
+  }
+  
+  .selection-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .selection-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* ===== SPECIAL EFFECTS ===== */
+.selection-highlight {
+  position: relative;
+  z-index: 1;
+}
+
+.selection-highlight::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: linear-gradient(45deg, #3498db, #2ecc71, #3498db);
+  background-size: 200%;
+  border-radius: 10px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.selection-highlight:hover::before {
+  opacity: 0.1;
+  animation: gradientShift 3s linear infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== ICON STYLES ===== */
+.selection-icon {
+  margin-right: 0.5rem;
+  color: #3498db;
+  transition: transform 0.3s ease;
+}
+
+.selection-select:focus ~ .selection-icon {
+  transform: rotate(180deg);
+  color: #2980b9;
+}
+
+/* ===== TRANSITION EFFECTS ===== */
+.selection-transition-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.selection-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.selection-transition-exit {
+  opacity: 1;
+}
+
+.selection-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms, transform 300ms;
+}
+/* ===== CUSTOM SCROLLBAR ===== */
+.selection-container::-webkit-scrollbar {
+  width: 8px;
+}
+.selection-container::-webkit-scrollbar-thumb {
+  background-color: #e0790b;
+  border-radius: 10px;
+}
+.form-text {
+  font-size: 0.9rem;
+  color: #ed8208;
+  margin-top: 0.25rem;
+  transition: color 0.3s ease;
+  font-size: large;
+}
+
+.btnn{
+  background-color: #e0790b;
+
+}
+.button{
+  margin-left: 10px;
+}
+.table-responsive{
+  margin-left: 20px;
+}
